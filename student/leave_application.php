@@ -4,7 +4,7 @@
     include('../includes/check-login.php');
     check_login();
     if(isset($_POST['submit'])){
-        $room=$_POST['room'];
+        $room_no=$_POST['room'];
         $stayf=$_POST['stayf'];
         $stayto=$_POST['stayto'];
         $address=$_POST['address'];
@@ -23,7 +23,8 @@
         $pcontact=$_POST['pcontact'];
         $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('issssibissssiissi',$room_no,$leaving_date,$back_date,$goingaddress,$goingcity,$goingpincode,$parentApplication,$regNo,$firstName,$middleName,$lastName,$email,$contactNo,$emecontactNo,$parentName,$relation,$parentNo);
+        // $rc=$stmt->bind_param('issssibissssiissi',$room_no,$leaving_date,$back_date,$goingaddress,$goingcity,$goingpincode,$parentApplication,$regNo,$firstName,$middleName,$lastName,$email,$contactNo,$emecontactNo,$parentName,$relation,$parentNo);
+        $rc=$stmt->bind_param('','$room_no','$stayf','$stayto','address','$city','$pincode',' $file','$regno','$fname',' $mname','$lname','$semail','$contact','$econtact',' $pname','$prelation','$pcontact' );
         $stmt->execute();
         echo"<script>alert('Requested Student Has Been Applied For Leave Application!');</script>";
     }
@@ -119,7 +120,7 @@
 
         <div class="container-fluid">
                 
-                <form method="POST">
+                <form action="" method="POST">
                 
                 <?php
                     $semail=$_SESSION['login'];
@@ -252,7 +253,7 @@
             <input type="file" name="file" id="file" required>
           </div>
           <hr>
-        </form>
+        <!-- </form> -->
     </div> 
                     <!-- <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
