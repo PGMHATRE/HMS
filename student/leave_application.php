@@ -4,7 +4,7 @@
     include('../includes/check-login.php');
     check_login();
     if(isset($_POST['submit'])){
-        $room_no=$_POST['room'];
+        $room=$_POST['room'];
         $stayf=$_POST['stayf'];
         $stayto=$_POST['stayto'];
         $address=$_POST['address'];
@@ -21,12 +21,12 @@
         $pname=$_POST['pname'];
         $prelation=$_POST['prelation'];
         $pcontact=$_POST['pcontact'];
-        $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $pemail=$_POST['pemail'];
+        $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        // $rc=$stmt->bind_param('issssibissssiissi',$room_no,$leaving_date,$back_date,$goingaddress,$goingcity,$goingpincode,$parentApplication,$regNo,$firstName,$middleName,$lastName,$email,$contactNo,$emecontactNo,$parentName,$relation,$parentNo);
-        $rc=$stmt->bind_param('','$room_no','$stayf','$stayto','address','$city','$pincode',' $file','$regno','$fname',' $mname','$lname','$semail','$contact','$econtact',' $pname','$prelation','$pcontact' );
+        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pcontact);
         $stmt->execute();
-        echo"<script>alert('Requested Student Has Been Applied For Leave Application!');</script>";
+        echo"<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
     }
 ?>
 
@@ -120,7 +120,7 @@
 
         <div class="container-fluid">
                 
-                <form action="" method="POST">
+                <form action="http://localhost/hostel/student/leave_application.php" method="POST">
                 
                 <?php
                     $semail=$_SESSION['login'];
@@ -137,7 +137,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                         </button>
-                                <strong>Info: </strong> You have already booked a hostel!
+                                <strong>Info: </strong> You have already applied for leave application!
                     </div>
                     <?php }
                     else{
@@ -253,7 +253,7 @@
             <input type="file" name="file" id="file" required>
           </div>
           <hr>
-        <!-- </form> -->
+       
     </div> 
                     <!-- <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
@@ -469,6 +469,18 @@
                         </div>
                     
                     </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Parent's Email</h4>
+                                    <div class="form-group">
+                                        <input type="email" name="pemail" id="pemail" placeholder="Enter parent's email" required class="form-control">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
 
 
                     <!-- <h4 class="card-title mt-5">Permanent Address Information</h4>
