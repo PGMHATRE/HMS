@@ -126,7 +126,6 @@
                                                 <th>#</th>
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
-                                                <!-- <th>Gender</th> -->
                                                 <th>Contact</th>
                                                 <th>Email</th>
                                                 <th></th>
@@ -146,7 +145,6 @@
                                         <tr><td><?php echo $cnt;;?></td>
                                         <td><?php echo $row->regNo;?></td>
                                         <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
-                                        <!-- <td><?php echo $row->gender;?></td> -->
                                         <td><?php echo $row->contactNo;?></td>
                                         <td><?php echo $row->email;?></td>
                                         <td>

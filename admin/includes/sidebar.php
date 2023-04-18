@@ -2,7 +2,7 @@
 <nav class="sidebar-nav">
 
     <ul id="sidebarnav">
-        <!-- Sidebar -->
+    
         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="dashboard.php"
         aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
          class="hide-menu">Dashboard</span></a></li>
@@ -37,7 +37,12 @@
 
         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="stu-leave-application.php"
         aria-expanded="false"><i class="fas fa-book"></i><span
-        class="hide-menu">Leave Application</span></a></li>
+        class="hide-menu">View Leave Applications</span></a></li>
+
+        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+        aria-expanded="false"><i class="fas fa-book"></i><span
+        class="hide-menu">View Attendence</span></a></li>
+
                            
     </ul>
 </nav>
