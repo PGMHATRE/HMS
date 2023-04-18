@@ -4,9 +4,11 @@
     include('../includes/check-login.php');
     check_login();
 
-    if(isset($_GET['del'])) {
+    if(isset($_GET['del'])) 
+    {
         $id=intval($_GET['del']);
-        $adn="DELETE from leaveapplication where sr_no=?";
+        // speling mistake
+        $adn="DELETE from leaveappication where sr_no=?";
             $stmt= $mysqli->prepare($adn);
             $stmt->bind_param('i',$id);
             $stmt->execute();
@@ -14,6 +16,7 @@
             echo "<script>alert('Record has been deleted');</script>" ;
     }
 ?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -29,6 +32,8 @@
     <title>Girls's Hostel Management System</title>
     <!-- Custom CSS -->
     <link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    
+    <!-- eroor occurs to access the file -->
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
      <!-- This page plugin CSS -->
      <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -130,8 +135,8 @@
                                         </thead>
                                         <tbody>
                                         <?php	
-                                        $aid=$_SESSION['sr_no'];
-                                        $ret="SELECT * from leaveapplication";
+                                        // $aid=$_SESSION['sr_no'];
+                                        $ret="SELECT * from leaveappication";
                                         $stmt= $mysqli->prepare($ret) ;
                                         $stmt->execute() ;//ok
                                         $res=$stmt->get_result();
