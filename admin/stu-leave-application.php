@@ -4,10 +4,8 @@
     include('../includes/check-login.php');
     check_login();
 
-    if(isset($_GET['del'])) 
-    {
+    if(isset($_GET['del'])) {
         $id=intval($_GET['del']);
-        // speling mistake
         $adn="DELETE from leaveappication where sr_no=?";
             $stmt= $mysqli->prepare($adn);
             $stmt->bind_param('i',$id);
@@ -16,7 +14,6 @@
             echo "<script>alert('Record has been deleted');</script>" ;
     }
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -32,8 +29,6 @@
     <title>Girls's Hostel Management System</title>
     <!-- Custom CSS -->
     <link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-    
-    <!-- eroor occurs to access the file -->
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
      <!-- This page plugin CSS -->
      <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -130,12 +125,13 @@
                                                 <th>Student's Name</th>
                                                 <th>Contact</th>
                                                 <th>Email</th>
+                                                <th>Actions</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?php	
-                                        // $aid=$_SESSION['sr_no'];
+                                        $aid=$_SESSION['id'];
                                         $ret="SELECT * from leaveappication";
                                         $stmt= $mysqli->prepare($ret) ;
                                         $stmt->execute() ;//ok
@@ -151,6 +147,7 @@
                                         <td><?php echo $row->contactNo;?></td>
                                         <td><?php echo $row->email;?></td>
                                         <td>
+                                        <a href="students-profile.php?id=<?php echo $row->id;?>" title="View Full Details"><i class="icon-size-fullscreen"></i></a>&nbsp;&nbsp;
                                         <a href="stu-leave-application.php?del=<?php echo $row->sr_no;?>" title="Delete Record" onclick="return confirm("Do you want to delete");><i class="icon-close" style="color:red;"></i></a></td>
                                         </tr>
                                             <?php
