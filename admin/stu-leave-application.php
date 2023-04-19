@@ -12,7 +12,7 @@
             $stmt->execute();
             $stmt->close();	   
             echo "<script>alert('Record has been deleted');</script>" ;
-    }
+    } 
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
