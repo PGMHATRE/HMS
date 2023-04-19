@@ -120,7 +120,7 @@
 
         <div class="container-fluid">
                 
-                <form action="http://localhost/hostel/student/leave_application.php" method="POST">
+                <form action="" method="POST">
                 
                 <?php
                     $semail=$_SESSION['login'];
