@@ -3,7 +3,6 @@
     include('../includes/dbconn.php');
     include('../includes/check-login.php');
     check_login();
-
     if(isset($_GET['del']))
     {
         $id=intval($_GET['del']);
