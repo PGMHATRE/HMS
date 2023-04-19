@@ -13,7 +13,7 @@
     $password = md5($password);
     $query="INSERT into userRegistration(regNo,firstName,middleName,lastName,contactNo,email,password) values(?,?,?,?,?,?,?)";
     $stmt = $mysqli->prepare($query);
-    $rc=$stmt->bind_param('sssssis',$regno,$fname,$mname,$lname,$contactno,$emailid,$password);
+    $rc=$stmt->bind_param('ssssiss',$regno,$fname,$mname,$lname,$contactno,$emailid,$password);
     $stmt->execute();
         echo"<script>alert('Student has been Registered!');</script>";
     }
