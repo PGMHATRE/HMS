@@ -147,7 +147,7 @@
                                         <td><?php echo $row->contactNo;?></td>
                                         <td><?php echo $row->email;?></td>
                                         <td>
-                                        <a href="students-profile.php?id=<?php echo $row->id;?>" title="View Full Details"><i class="icon-size-fullscreen"></i></a>&nbsp;&nbsp;
+                                        <a href="leave_details.php?id=<?php echo $row->sr_no;?>" title="View Full Details"><i class="icon-size-fullscreen"></i></a>&nbsp;&nbsp;
                                         <a href="stu-leave-application.php?del=<?php echo $row->sr_no;?>" title="Delete Record" onclick="return confirm("Do you want to delete");><i class="icon-close" style="color:red;"></i></a></td>
                                         </tr>
                                             <?php
