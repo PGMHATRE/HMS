@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -21,7 +17,7 @@
     <link href="login/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="login/dist/css/style.min.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -37,14 +33,13 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar  navbar-expand-lg navbar-expand-md navbar-light top-navbar px-3">
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -61,83 +56,64 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Us</a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.php">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contact Us</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="form-inline">
-                    <a class="btn btn-outline-success my-2 my-sm-0 rounded-pill" href="login/" >Login</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0 rounded-pill" href="login/">Login</a>
                 </div>
             </nav>
         </header>
         <div class="mt-5">
             <div class="container-fluid">
                 <div class="card-group py-2">
-                   
+
                 </div>
-                
-                <div class="mx-4 card py-4 px-3 shadow-md" style="border-radius: 12px">
-                    <div class="card-header text-dark font-weight-bold " style="border-radius: 8px">
-                        Welcome To Girl's Hostel Management System
-                    </div>
+
+                <div class="mx-2 nt-3 card py-4 px-3 shadow-md" style="border-radius: 12px">
                     <div class="card-body">
-                        <h5 class="card-title">For Attendance</h5>
-                        <p class="card-text">A online System for the Attendance of the Girl's Hostel</p>
-                        <a href="login" class="btn btn-primary rounded-pill">Login For Attendance</a>
+                            <h2 class="text-center text-dark font-weight-bold mb-4">Contact Us</h2>
+                            <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <textarea class="form-control" name="message" id="message" cols="30" rows="7" placeholder="Write your message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="submit" value="Send Message" class="btn btn-primary rounded-pill py-2 px-4">
+                                        <span class="submitting"></span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="form-message-warning mt-4"></div>
                     </div>
                 </div>
 
-                <div class="" style="background-size: cover; background-position: center;">
-                    <div class="mx-4 pt-3 card p-2 shadow-md" style="border-radius: 12px">
-                        <div class="card-body">
-                            <h3 class="text-center font-weight-bold mb-3 text-dark">Notice Board</h3>
-                            <ul class="list-group">
-                                <li class="list-group-item">Notice 1</li>
-                                <li class="list-group-item">Notice 2</li>
-                                <li class="list-group-item">Notice 3</li>
-                                <li class="list-group-item">Notice 4</li>
-                                <li class="list-group-item">Notice 5</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="" style="background-size: cover; background-position: center;">
-                    <div class="mx-4 pt-3 card p-2 shadow-md" style="border-radius: 12px">
-                        <div class="card-body">
-                            <h3 class="text-center font-weight-bold mb-3 text-dark">Hostel Facilities</h3>
-                            <div class="row mt-2">
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 1</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 2</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 3</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-               
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -146,8 +122,8 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-            <!-- &copy; 2023 - Girls's Hostel Management System - by <a href="https://freeprojectscodes.com">Freeprojectscodes</a> -->
-            </footer>            <!-- ============================================================== -->
+                <!-- &copy; 2023 - Girls's Hostel Management System - by <a href="https://freeprojectscodes.com">Freeprojectscodes</a> -->
+            </footer> <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
