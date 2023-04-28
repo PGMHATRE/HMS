@@ -39,7 +39,7 @@
         aria-expanded="false"><i class="fas fa-book"></i><span
         class="hide-menu">View Leave Applications</span></a></li>
 
-        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="view_attendence.php"
         aria-expanded="false"><i class="fas fa-book"></i><span
         class="hide-menu">View Attendence</span></a></li>
 
