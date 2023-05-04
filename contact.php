@@ -1,162 +1,86 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="login/assets/images/favicon.png">
-    <title>Girls's Hostel Management System</title>
-    <!-- Custom CSS -->
-    <link href="login/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-    <link href="login/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="login/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="login/dist/css/style.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin6">
-            <nav class="navbar  navbar-expand-lg navbar-expand-md navbar-light top-navbar px-3">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-brand">
-                    <!-- Logo icon -->
-                    <a href="dashboard.php">
-                        <b class="logo-icon">
-                            <img src="login/assets/images/logo-icon-nav.png" alt="homepage" class="dark-logo" />
-                        </b>
-                        <span class="logo-text">
-                            <img src="login/assets/images/logo-text-nav.png" alt="homepage" class="dark-logo" />
-                        </span>
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.php">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="form-inline">
-                    <a class="btn btn-outline-success my-2 my-sm-0 rounded-pill" href="login/">Login</a>
-                </div>
-            </nav>
-        </header>
-        <div class="mt-5">
-            <div class="container-fluid">
-                <div class="card-group py-2">
-
-                </div>
-
-                <div class="mx-2 nt-3 card py-4 px-3 shadow-md" style="border-radius: 12px">
-                    <div class="card-body">
-                            <h2 class="text-center text-dark font-weight-bold mb-4">Contact Us</h2>
-                            <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="7" placeholder="Write your message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <input type="submit" value="Send Message" class="btn btn-primary rounded-pill py-2 px-4">
-                                        <span class="submitting"></span>
-                                    </div>
-                                </div>
-                            </form>
-                            <div id="form-message-warning mt-4"></div>
-                    </div>
-                </div>
-
+<?php 
+    include('include/header.php');
+?>
+    <section data-bs-version="5.1" class="contacts2 cid-tDjpr5VdMc" id="contacts2-13">
+        <div class="container">
+            <div class="mbr-section-head">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                    <strong>Contact Us</strong>
+                </h3>
 
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center text-muted">
-                <!-- &copy; 2023 - Girls's Hostel Management System - by <a href="https://freeprojectscodes.com">Freeprojectscodes</a> -->
-            </footer> <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            <div class="row justify-content-center mt-4">
+                <div class="card col-12 col-md-6">
+                    <div class="card-wrapper">
+                        <div class="image-wrapper">
+                            <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
+                        </div>
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style mb-1 display-5">
+                                <strong>Phone</strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style display-7">
+                                <a href="tel:9102025559200" class="text-primary">91 020 25559200</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6">
+                    <div class="card-wrapper">
+                        <div class="image-wrapper">
+                            <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
+                        </div>
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style mb-1 display-5">
+                                <strong>Email</strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style display-7">
+                                <a href="mailto:principal@gppune.ac.in" class="text-primary">principal@gppune.ac.in</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="login/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="login/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="login/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- apps -->
-    <!-- apps -->
-    <script src="login/dist/js/app-style-switcher.js"></script>
-    <script src="login/dist/js/feather.min.js"></script>
-    <script src="login/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="login/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="login/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <script src="login/assets/extra-libs/c3/d3.min.js"></script>
-    <script src="login/assets/extra-libs/c3/c3.min.js"></script>
-    <script src="login/assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="login/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="login/dist/js/pages/dashboards/dashboard1.min.js"></script>
-    <script src="login/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="login/dist/js/pages/datatable/datatable-basic.init.js"></script>
-</body>
+    </section>
 
-</html>
+    <section data-bs-version="5.1" class="form5 cid-tDjraNpFtx" id="form5-14">
+        <div class="container">
+            <div class="mbr-section-head">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Get in Touch</strong></h3>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                    <form action="" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="cOgf2dmothlyKiBou4yQoonOgDJHnn20uxUOgo2c6LfhBjUgYGdRRRa+4JXOVQ/H76O8p5BrvvKVCzMDRb9Dkd1lryvXHw9etK1vOxKg6f4mh4IBn4PeSeuqHwhaQqBU">
+                        <div class="row">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks For Filling Out We Will Contact You Soon!!</div>
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                                Oops...! some problem!
+                            </div>
+                        </div>
+                        <div class="dragArea row">
+                            <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                                <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form5-14">
+                            </div>
+                            <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                                <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email-form5-14">
+                            </div>
+                            <div class="col-12 form-group mb-3" data-for="url">
+                                <input type="url" name="url" placeholder="Subject" data-form-field="url" class="form-control" value="" id="url-form5-14">
+                            </div>
+                            <div class="col-12 form-group mb-3" data-for="textarea">
+                                <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-form5-14"></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                                <button type="submit" class="btn btn-primary display-4">Send message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php 
+    include('include/footer.php');
+?>

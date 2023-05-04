@@ -1,183 +1,128 @@
+<?php
+include('include/header.php');
+?>
 
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
+    <section data-bs-version="5.1" class="header1 cid-s48MCQYojq mbr-fullscreen mbr-parallax-background" id="header1-f">
+        <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(255, 255, 255);"></div>
+        <div class="align-center container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9">
+                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Welcome To </strong><br><strong>Girl's Hostel Management</strong></h1>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="login/assets/images/favicon.png">
-    <title>Girls's Hostel Management System</title>
-    <!-- Custom CSS -->
-    <link href="login/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-    <link href="login/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="login/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="login/dist/css/style.min.css" rel="stylesheet">
-    
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin6">
-            <nav class="navbar  navbar-expand-lg navbar-expand-md navbar-light top-navbar px-3">
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-brand">
-                    <!-- Logo icon -->
-                    <a href="dashboard.php">
-                        <b class="logo-icon">
-                            <img src="login/assets/images/logo-icon-nav.png" alt="homepage" class="dark-logo" />
-                        </b>
-                        <span class="logo-text">
-                            <img src="login/assets/images/logo-text-nav.png" alt="homepage" class="dark-logo" />
-                        </span>
-                    </a>
+                    <p class="mbr-text mbr-fonts-style display-7">Here Manage All your Information and attendance regarding the Girl's Hostel</p>
+                    <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4">Login Now</a> <a class="btn btn-success-outline display-4" href="http://about.php">About Us &gt;</a></div>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Us</a>
-                    </li>
-                    </ul>
-                </div>
-                <div class="form-inline">
-                    <a class="btn btn-outline-success my-2 my-sm-0 rounded-pill" href="login/" >Login</a>
-                </div>
-            </nav>
-        </header>
-        <div class="mt-5">
-            <div class="container-fluid">
-                <div class="card-group py-2">
-                   
-                </div>
-                
-                <div class="mx-4 card py-4 px-3 shadow-md" style="border-radius: 12px">
-                    <div class="card-header text-dark font-weight-bold " style="border-radius: 8px">
-                        Welcome To Girl's Hostel Management System
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">For Attendance</h5>
-                        <p class="card-text">A online System for the Attendance of the Girl's Hostel</p>
-                        <a href="login" class="btn btn-primary rounded-pill">Login For Attendance</a>
-                    </div>
-                </div>
-
-                <div class="" style="background-size: cover; background-position: center;">
-                    <div class="mx-4 pt-3 card p-2 shadow-md" style="border-radius: 12px">
-                        <div class="card-body">
-                            <h3 class="text-center font-weight-bold mb-3 text-dark">Notice Board</h3>
-                            <ul class="list-group">
-                                <li class="list-group-item">Notice 1</li>
-                                <li class="list-group-item">Notice 2</li>
-                                <li class="list-group-item">Notice 3</li>
-                                <li class="list-group-item">Notice 4</li>
-                                <li class="list-group-item">Notice 5</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="" style="background-size: cover; background-position: center;">
-                    <div class="mx-4 pt-3 card p-2 shadow-md" style="border-radius: 12px">
-                        <div class="card-body">
-                            <h3 class="text-center font-weight-bold mb-3 text-dark">Hostel Facilities</h3>
-                            <div class="row mt-2">
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 1</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 2</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card p-3" style="background-color: #fff; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,.1); border-radius: 12px">
-                                        <h5 class="text-center font-weight-bold mb-3">Facility 3</h5>
-                                        <p class="text-center">Facility Description</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-               
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center text-muted">
-            <!-- &copy; 2023 - Girls's Hostel Management System - by <a href="https://freeprojectscodes.com">Freeprojectscodes</a> -->
-            </footer>            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="login/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="login/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="login/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- apps -->
-    <!-- apps -->
-    <script src="login/dist/js/app-style-switcher.js"></script>
-    <script src="login/dist/js/feather.min.js"></script>
-    <script src="login/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="login/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="login/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <script src="login/assets/extra-libs/c3/d3.min.js"></script>
-    <script src="login/assets/extra-libs/c3/c3.min.js"></script>
-    <script src="login/assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="login/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="login/dist/js/pages/dashboards/dashboard1.min.js"></script>
-    <script src="login/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="login/dist/js/pages/datatable/datatable-basic.init.js"></script>
-</body>
+    </section>
 
-</html>
+    <section data-bs-version="5.1" class="features19 cid-tDjmjOE7iI" id="features20-v">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="card-wrapper pb-4">
+                        <div class="card-box align-center">
+                            <h4 class="card-title mbr-fonts-style mb-4 display-2">
+                                <strong>NOTICE BOARD</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="item mbr-flex">
+                        <div class="icon-box">
+                            <span class="step-number mbr-fonts-style display-5">1</span>
+                        </div>
+                        <div class="text-box">
+                            <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                                <strong>Notice One Title</strong>
+                            </h4>
+                            <h5 class="icon-text mbr-black mbr-fonts-style display-4">Some Detail of the Notice</h5>
+                        </div>
+                    </div>
+                    <div class="item mbr-flex last">
+                        <div class="icon-box">
+                            <span class="step-number mbr-fonts-style display-5">2</span>
+                        </div>
+                        <div class="text-box">
+                            <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                                <strong>Notice Two Title</strong>
+                            </h4>
+                            <h5 class="icon-text mbr-black mbr-fonts-style display-4">Some Detail of the Notice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-bs-version="5.1" class="features16 cid-tDjiSuOrD3" id="features17-m">
+        <div class="container-fluid">
+            <div class="content-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="image-wrapper">
+                            <img src="assets/images/whatsapp-image-2023-05-04-at-4.38.02-pm-1360x611.jpg" alt="Girl's Hostel ">
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg">
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style display-5">
+                                <strong>GPP Girl's Hostel</strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-4 display-4">
+                                Girl's Hostel Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-bs-version="5.1" class="features15 cid-tDjiSTUBwh" id="features16-n">
+        <div class="container-fluid">
+            <div class="content-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg">
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style display-2">
+                                <strong>Girl's Hostel</strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-4 display-4">
+                                Description of Girl's Hostel</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="image-wrapper">
+                            <img src="assets/images/whatsapp-image-2023-05-04-at-4.38.02-pm-1-1360x611.jpg" alt="Girl's Hostel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-bs-version="5.1" class="features16 cid-tDjmRL0dtS" id="features17-x">
+        <div class="container-fluid">
+            <div class="content-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="image-wrapper">
+                            <img src="assets/images/whatsapp-image-2023-05-04-at-4.38.00-pm-1599x718.jpg" alt="Girl's Hostel Facilities">
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg">
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style display-5"><strong>Girl' Hostel Facilities</strong></h6>
+                            <p class="mbr-text mbr-fonts-style mb-4 display-4">
+                                Description and facilities of girl's hostel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php 
+    include('include/footer.php');
+?>
