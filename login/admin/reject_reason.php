@@ -100,7 +100,7 @@
                 <div class="card">
                  
                  <div class="card-body">
-                 
+                 <form action="email.php" method="post">
                     <div class="row">
                     
                     <div class="table-responsive">
@@ -108,17 +108,19 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Reason</label>
                                         </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
+                                        <input type="hidden" name="parent_mail" value="<?php echo $_GET['parent_email']; ?>">
+                                        <input type="hidden" name="student_mail" value="<?php echo $_GET['student_email'];?>">
+                                        <select name="message" class="custom-select" id="inputGroupSelect01">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="Inappropriate reason and time">Inappropriate reason and time</option>
+                                            <option value="You have frequently asked for leaves before">You have frequently asked for leaves before</option>
+                                            <option value="Academic attendance is mandatory">Academic attendance is mandatory</option>
                                         </select>
                                         </div>  
-                                        <button type="button" class="btn btn-warning">Inform</button>  
+                                        <button type="submit" name="send" class="btn btn-warning">Inform</button>  
                               </div>
                     </div>
-                    
+                 </form>
                  </div>
                  
                </div>

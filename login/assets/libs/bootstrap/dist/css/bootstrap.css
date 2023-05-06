@@ -1993,11 +1993,19 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
+  
 }
 
 .form-text {
   display: block;
   margin-top: 0.25rem;
+}
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 10px solid #f2f2f2;
 }
 
 .form-row {

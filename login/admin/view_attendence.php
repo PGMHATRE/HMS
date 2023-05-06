@@ -3,6 +3,16 @@
     include('../includes/dbconn.php');
     include('../includes/check-login.php');
     check_login();
+
+    if(isset($_GET['del'])) {
+        $id=intval($_GET['del']);
+        $adn="DELETE from userregistration where id=?";
+            $stmt= $mysqli->prepare($adn);
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+            $stmt->close();	   
+            echo "<script>alert('Record has been deleted');</script>" ;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +31,21 @@
     <!-- Custom CSS -->
     <link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+     <!-- This page plugin CSS -->
+     <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
 
-    
+    <script language="javascript" type="text/javascript">
+    var popUpWin=0;
+    function popUpWindow(URLStr, left, top, width, height){
+        if(popUpWin) {
+         if(!popUpWin.closed) popUpWin.close();
+            }
+            popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+510+',height='+430+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+        }
+    </script>
+
 </head>
 
 <body>
@@ -69,14 +90,13 @@
         <!-- ============================================================== -->
         <div class="page-wrapper">
             <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
+            <!-- Bread crumb and right sidebar t
+            oggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb">
                 <div class="row">
-
-
                     <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Send Leave Confirmation Latter To Parents</h4>
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Student's Account</h4>
                         <div class="d-flex align-items-center">
                             <!-- <nav aria-label="breadcrumb">
                                 
@@ -86,7 +106,6 @@
                     
                 </div>
             </div>
-            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -94,28 +113,58 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-            
 
+                <!-- Table Starts -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-subtitle">Displaying all the registered student's account.</h6>
+                                <div class="table-responsive">
+                                    <table id="zero_config" class="table table-striped table-hover table-bordered no-wrap">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>En.No.</th>
+                                                <th>Student's Name</th>
+                                                <th>Mark Present</th>
+                                                <th>Mark Absent</th>
 
-<div class="card">
- 
- <div class="card-body">
-<form action="email.php" method="post">
-  <div class="form-group form-box">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="hidden" name="student_mail" value="<?php echo $_GET['student_email']; ?>">
-    <input name= "parent_mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $_GET['parent_email'];?>">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <button type="submit" name="send" class="btn btn-primary">Submit</button>
-</form>
-              <!-- Table column end -->
-</div>
-</div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php	
+                                        $aid=$_SESSION['id'];
+                                        $ret="SELECT * from userregistration";
+                                        $stmt= $mysqli->prepare($ret) ;
+                                        $stmt->execute() ;//ok
+                                        $res=$stmt->get_result();
+                                        $cnt=1;
+                                        while($row=$res->fetch_object())
+                                            {
+                                                ?>
+                                        <tr><td><?php echo $cnt;;?></td>
+                                        <td><?php echo $row->regNo;?></td>
+                                        <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
+                                        <td>
+                                        <a href="view_attendence.php?id=<?php echo $row->id;?>" title="Mark Present" onclick="return confirm("Do you want to delete");"><i class="fas fa-graduation-cap" style="color:green"></i></a></td>
+                                        <td><a href="view_attendence.php?id=<?php echo $row->id;?>" title="Mark Absent"><i class="fas fa-times"></i></a>&nbsp;&nbsp</td>;
+                                        </tr>
+                                            <?php
+                                        $cnt=$cnt+1;
+                                            } ?>
+											
+										
+									</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table Ends -->
+
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -156,6 +205,8 @@
     <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard1.min.js"></script>
+    <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
 
 </body>
 
