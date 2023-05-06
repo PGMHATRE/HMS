@@ -71,7 +71,7 @@ include('include/header.php');
                                 <strong>GPP Girl's Hostel</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Girl's Hostel Description</p>
+                                In GPP Girl's Hostel The students get an option to choose between a twin sharing room and a triple sharing room.</p>
                         </div>
                     </div>
                 </div>
@@ -86,10 +86,10 @@ include('include/header.php');
                     <div class="col-12 col-lg">
                         <div class="text-wrapper">
                             <h6 class="card-title mbr-fonts-style display-2">
-                                <strong>Girl's Hostel</strong>
+                                <strong>GPP Girl's Hostel</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Description of Girl's Hostel</p>
+                            The GPP Girl's hostel have an gaming area, hangout zones & reading rooms. The University also provides transport facilities to its students residing in its hostels.</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
@@ -115,7 +115,7 @@ include('include/header.php');
                         <div class="text-wrapper">
                             <h6 class="card-title mbr-fonts-style display-5"><strong>Girl' Hostel Facilities</strong></h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Description and facilities of girl's hostel</p>
+                            The rooms have unlimited high speed WiFI and house-keeping facilities. To ensure the safety of our students, the hostels have full-time wardens and CCTV monitoring.</p>
                         </div>
                     </div>
                 </div>
