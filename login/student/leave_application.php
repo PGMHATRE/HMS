@@ -24,7 +24,7 @@
         $pemail=$_POST['pemail'];
         $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pcontact);
+        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pemail);
         $stmt->execute();
         echo"<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
     }

@@ -95,23 +95,20 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
             
-
-
 <div class="card">
  
  <div class="card-body">
-<form action="email.php" method="post">
+            <form>
   <div class="form-group form-box">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="hidden" name="student_mail" value="<?php echo $_GET['student_email']; ?>">
-    <input name= "parent_mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $_GET['parent_email'];?>">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <button type="submit" name="send" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
               <!-- Table column end -->
 </div>
