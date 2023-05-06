@@ -8,7 +8,8 @@
         $roomno=$_POST['room'];
         $seater=$_POST['seater'];
         $feespm=$_POST['fpm'];
-        $foodstatus=$_POST['foodstatus'];
+        // $foodstatus=$_POST['foodstatus'];
+        // $foodstatus = "";
         $stayfrom=$_POST['stayf'];
         $duration=$_POST['duration'];
         $course=$_POST['course'];
@@ -29,9 +30,13 @@
         $paddress=$_POST['paddress'];
         $pcity=$_POST['pcity'];
         $ppincode=$_POST['ppincode'];
-        $query="INSERT into  registration(roomno,seater,feespm,foodstatus,stayfrom,duration,course,regno,firstName,middleName,lastName,gender,contactno,emailid,egycontactno,guardianName,guardianRelation,guardianContactno,corresAddress,corresCIty,corresPincode,pmntAddress,pmntCity,pmntPincode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query="INSERT into  registration(roomno,seater,stayfrom,regno,firstName,middleName,lastName,gender,contactno,emailid,egycontactno,guardianName,guardianRelation,guardianContactno,corresAddress,corresCIty,corresPincode,pmntAddress,pmntCity,pmntPincode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('iiiisissssssisissississi',$roomno,$seater,$feespm,$foodstatus,$stayfrom,$duration,$course,$regno,$fname,$mname,$lname,$gender,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
+        $rc=$stmt->bind_param('iissssssisissississi',$roomno,$seater,$stayfrom,$regno,$fname,$mname,$lname,$gender,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
+
+        $query = "UPDATE rooms SET fees='$feespm' WHERE room_no = $roomno";
+        $stmt = $mysqli->prepare($query);
+
         $stmt->execute();
         echo"<script>alert('Success: Booked!');</script>";
     }

@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    ob_start();
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -23,10 +24,10 @@
         $mail->SMTPSecure = 'tls';  
         $mail->Port     = 587;  
         $mail->Username = "gppgirlshostel@gmail.com";
-        $mail->Password = '';
+        $mail->Password = 'jxcmvisuzsqtlbje';
         $mail->Mailer   = "smtp";
 
-        $mail->SetFrom("gppgirlshostel@gmail.com", "Girl's Hostel Inquiry - " . $name);
+        $mail->SetFrom("gppgirlshostel@gmail.com", $email);
         $mail->addAddress("gppgirlshostel@gmail.com");
         $mail->Subject = $subject;
         $mail->WordWrap = 80;
@@ -34,12 +35,12 @@
         $mail->IsHTML(true);
 
         if ($mail->Send()) {
-            $_SESSION['respone_msg'] = "Thanks For Filling Out We Will Contact You Soon!!";
-            $_SESSION['respone_msg_type'] = "success";
+            $_SESSION['response_msg'] = "Thanks For Filling Out We Will Contact You Soon!!";
+            $_SESSION['response_msg_type'] = "success";
         } 
         else {
-            $_SESSION['respone_msg'] = "Oops...! Something Went Wrong!";
-            $_SESSION['respone_msg_type'] = "danger";
+            $_SESSION['response_msg'] = "Oops...! Something Went Wrong!";
+            $_SESSION['response_msg_type'] = "danger";
         }
         
         header("Location: contact.php");

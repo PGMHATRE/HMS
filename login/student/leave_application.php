@@ -10,7 +10,9 @@
         $address=$_POST['address'];
         $city=$_POST['city'];
         $pincode=$_POST['pincode'];
-        $file=$_POST['file'];
+        // $file=$_POST['file'];
+        $file_name = $_FILES['file']['name'];
+        $file_tmp = $_FILES['file']['tmp_name'];
         $regno=$_POST['regno'];
         $fname=$_POST['fname'];
         $mname=$_POST['mname'];
@@ -22,9 +24,11 @@
         $prelation=$_POST['prelation'];
         $pcontact=$_POST['pcontact'];
         $pemail=$_POST['pemail'];
+
+        move_uploaded_file($file_tmp,"../admin/leave_applications".$file_name);
         $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pcontact);
+        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file_name,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pcontact);
         $stmt->execute();
         echo"<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
     }
@@ -120,7 +124,7 @@
 
         <div class="container-fluid">
                 
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                 
                 <?php
                     $semail=$_SESSION['login'];
@@ -205,8 +209,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                     <h4 class="card-title mt-5">Address where I am going</h4>
+                    <h4 class="card-title mt-5">Address where I am going</h4>
 
                     <div class="row">
                     
@@ -248,13 +253,12 @@
                     
                     </div>
                     <hr>
-          <div class="form-group mt-3">
-          <h4 class="card-title mt-5">Uplode parent's confirmation letter</h4>
-            <input type="file" name="file" id="file" required>
-          </div>
-          <hr>
+                    <div class="form-group mt-3">
+                    <h4 class="card-title mt-5">Uplode parent's confirmation letter</h4>
+                        <input type="file" name="file" id="file" required>
+                    </div>
+                    <hr>
        
-    </div> 
                     <!-- <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
@@ -428,8 +432,9 @@
                         </div>
                     </div>
 
+                    </div>
 
-                <h4 class="card-title mt-5">Parent's Information</h4>
+                    <h4 class="card-title mt-5">Parent's Information</h4>
 
                     <div class="row">
                     

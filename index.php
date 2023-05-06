@@ -10,7 +10,7 @@ include('include/header.php');
                     <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Welcome To </strong><br><strong>Girl's Hostel Management</strong></h1>
 
                     <p class="mbr-text mbr-fonts-style display-7">Here Manage All your Information and attendance regarding the Girl's Hostel</p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4">Login Now</a> <a class="btn btn-success-outline display-4" href="http://about.php">About Us &gt;</a></div>
+                    <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4" href="login/">Login Now</a> <a class="btn btn-success-outline display-4" href="about.php">About Us &gt;</a></div>
                 </div>
             </div>
         </div>
