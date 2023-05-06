@@ -148,12 +148,16 @@
                                           <tr>
 
 
-                                          <?php } ?>
-
                                       </tbody>
                                   </table>
-                                  <a class="btn btn-success" href="send_mail.php" role="button">Accept</a>
-                                  <a class="btn btn-danger" href="reject_reason.php" role="button">Reject</a>
+                                  <form action="" method="post">
+                                    <input type="hidden" name="stu_mail" value="<?php echo $row->email; ?>">
+
+                                    <a class="btn btn-success" href="send_mail.php?parent_email=<?php echo $row->pemail;?>&student_email=<?php echo $row->email; ?>" role="button">Accept</a>
+                                    <!-- <button class="btn btn-success" type="submit" name="accept"></button> -->
+                                    <a class="btn btn-danger" href="reject_reason.php?parent_email=<?php echo $row->pemail;?>&student_email=<?php echo $row->email; ?>" role="button">Reject</a>
+                                  </form>
+                                  <?php } ?>
                                  
                               </div>
                     
