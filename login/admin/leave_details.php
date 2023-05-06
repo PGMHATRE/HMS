@@ -143,7 +143,8 @@
 
                                           <tr>
                                           <td><b>Parent's Approval Letter:</b></td>
-                                          <td><?php echo $row->parentApplication;?></td>
+                                          <td><embed src="leave_applications/<?php echo $row->parentApplication;?>"></td>
+                                          <td><a href="leave_applications/<?php echo $row->parentApplication;?>" download>Download</a></td>
                                           <tr>
 
 

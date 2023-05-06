@@ -25,10 +25,10 @@
         $pcontact=$_POST['pcontact'];
         $pemail=$_POST['pemail'];
 
-        move_uploaded_file($file_tmp,"../admin/leave_applications".$file_name);
+        move_uploaded_file($file_tmp,"../admin/leave_applications/".$file_name);
         $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('issssibissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file_name,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pcontact);
+        $rc=$stmt->bind_param('issssisissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file_name,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pemail);
         $stmt->execute();
         echo"<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
     }
