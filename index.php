@@ -7,7 +7,7 @@ include('include/header.php');
         <div class="align-center container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-9">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Welcome To </strong><br><strong>Girl's Hostel Management</strong></h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Welcome To GPP</strong><br><strong>Girl's Hostel Management</strong></h1>
 
                     <p class="mbr-text mbr-fonts-style display-7">Here Manage All your Information and attendance regarding the Girl's Hostel</p>
                     <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4" href="login/">Login Now</a> <a class="btn btn-success-outline display-4" href="about.php">About Us &gt;</a></div>
@@ -71,7 +71,7 @@ include('include/header.php');
                                 <strong>GPP Girl's Hostel</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Girl's Hostel Description</p>
+                                In GPP Girl's Hostel The students get an option to choose between a twin sharing room and a triple sharing room.</p>
                         </div>
                     </div>
                 </div>
@@ -86,10 +86,10 @@ include('include/header.php');
                     <div class="col-12 col-lg">
                         <div class="text-wrapper">
                             <h6 class="card-title mbr-fonts-style display-2">
-                                <strong>Girl's Hostel</strong>
+                                <strong>GPP Girl's Hostel</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Description of Girl's Hostel</p>
+                            The GPP Girl's hostel have an gaming area, hangout zones & reading rooms. The University also provides transport facilities to its students residing in its hostels.</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
@@ -115,7 +115,15 @@ include('include/header.php');
                         <div class="text-wrapper">
                             <h6 class="card-title mbr-fonts-style display-5"><strong>Girl' Hostel Facilities</strong></h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                                Description and facilities of girl's hostel</p>
+                                <h4>Amenities:</h4>
+                                <ul>
+                                    <li>24 Hours CCTV surveillance</li>
+                                    <li>Regular water supply</li>
+                                    <li>Green and clean environment</li>
+                                    <li>Ventilated rooms</li>
+                                    <li>Well furnished rooms with cupboards and study tables.</li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                 </div>
