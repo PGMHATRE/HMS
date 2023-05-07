@@ -32,7 +32,16 @@
         $ppincode=$_POST['ppincode'];
         $query="INSERT into  registration(roomno,seater,stayfrom,regno,firstName,middleName,lastName,gender,contactno,emailid,egycontactno,guardianName,guardianRelation,guardianContactno,corresAddress,corresCIty,corresPincode,pmntAddress,pmntCity,pmntPincode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
+       
         $rc=$stmt->bind_param('iissssssisissississi',$roomno,$seater,$stayfrom,$regno,$fname,$mname,$lname,$gender,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
+        $stmt->execute();
+
+        $adn="DELETE from userregistration where regNo=?";
+        $stmt= $mysqli->prepare($adn);
+        $stmt->bind_param('i',$regno);
+        $stmt->execute();
+        $stmt->close();	   
+
 
         $query = "UPDATE rooms SET fees='$feespm' WHERE room_no = $roomno";
         $stmt = $mysqli->prepare($query);
@@ -80,6 +89,62 @@
         success: function(data){
         //alert(data);
         $('#fpm').val(data);
+        }
+        });
+    }
+    </script>
+
+
+
+    <script>
+    function getData(val) {
+        $.ajax({
+        type: "POST",
+        url: "get-booking-data.php",
+        data:'fname='+val,
+        success: function(data){
+        //alert(data);
+        $('#fname').val(data);
+        }
+        });
+
+        $.ajax({
+        type: "POST",
+        url: "get-booking-data.php",
+        data:'mname='+val,
+        success: function(data){
+        //alert(data);
+        $('#mname').val(data);
+        }
+        });
+
+        $.ajax({
+        type: "POST",
+        url: "get-booking-data.php",
+        data:'lname='+val,
+        success: function(data){
+        //alert(data);
+        $('#lname').val(data);
+        }
+        });
+
+        $.ajax({
+        type: "POST",
+        url: "get-booking-data.php",
+        data:'email='+val,
+        success: function(data){
+        //alert(data);
+        $('#email').val(data);
+        }
+        });
+
+        $.ajax({
+        type: "POST",
+        url: "get-booking-data.php",
+        data:'contact='+val,
+        success: function(data){
+        //alert(data);
+        $('#contact').val(data);
         }
         });
     }
@@ -320,7 +385,19 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Registration Number</h4>
                                         <div class="form-group">
-                                            <input type="text" name="regno" id="regno" placeholder="Enter registration number" class="form-control" required>
+                                            <!-- <input type="text" name="regno" id="regno" placeholder="Enter registration number" class="form-control" required> -->
+                                            <select class="custom-select mr-sm-2" name="regno" id="regno" onChange="getData(this.value)" required id="inlineFormCustomSelect">
+                                            <option selected>Select...</option>
+                                            <?php $query ="SELECT * FROM userregistration";
+                                            $stmt2 = $mysqli->prepare($query);
+                                            $stmt2->execute();
+                                            $res=$stmt2->get_result();
+                                            while($row=$res->fetch_object())
+                                            {
+                                            ?>
+                                            <option value="<?php echo $row->regNo;?>"> <?php echo $row->regNo;?></option>
+                                            <?php } ?>
+                                        </select>
                                         </div>
                                 </div>
                             </div>
@@ -397,7 +474,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Contact Number</h4>
                                     <div class="form-group">
-                                        <input type="number" name="contact" id="contact" placeholder="Enter contact number" class="form-control" required>
+                                        <input  name="contact" id="contact" placeholder="Enter contact number" class="form-control" required>
                                     </div>
                             </div>
                         </div>
@@ -674,7 +751,6 @@
             });
         }
     </script>
-
 
     <script type="text/javascript">
 
