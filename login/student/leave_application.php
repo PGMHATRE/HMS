@@ -1,37 +1,37 @@
 <?php
-    session_start();
-    include('../includes/dbconn.php');
-    include('../includes/check-login.php');
-    check_login();
-    if(isset($_POST['submit'])){
-        $room=$_POST['room'];
-        $stayf=$_POST['stayf'];
-        $stayto=$_POST['stayto'];
-        $address=$_POST['address'];
-        $city=$_POST['city'];
-        $pincode=$_POST['pincode'];
-        // $file=$_POST['file'];
-        $file_name = $_FILES['file']['name'];
-        $file_tmp = $_FILES['file']['tmp_name'];
-        $regno=$_POST['regno'];
-        $fname=$_POST['fname'];
-        $mname=$_POST['mname'];
-        $lname=$_POST['lname'];
-        $semail=$_POST['semail'];
-        $contact=$_POST['contact'];
-        $econtact=$_POST['econtact'];
-        $pname=$_POST['pname'];
-        $prelation=$_POST['prelation'];
-        $pcontact=$_POST['pcontact'];
-        $pemail=$_POST['pemail'];
+session_start();
+include('../includes/dbconn.php');
+include('../includes/check-login.php');
+check_login();
+if (isset($_POST['submit'])) {
+    $room = $_POST['room'];
+    $stayf = $_POST['stayf'];
+    $stayto = $_POST['stayto'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $pincode = $_POST['pincode'];
+    // $file=$_POST['file'];
+    $file_name = $_FILES['file']['name'];
+    $file_tmp = $_FILES['file']['tmp_name'];
+    $regno = $_POST['regno'];
+    $fname = $_POST['fname'];
+    $mname = $_POST['mname'];
+    $lname = $_POST['lname'];
+    $semail = $_POST['semail'];
+    $contact = $_POST['contact'];
+    $econtact = $_POST['econtact'];
+    $pname = $_POST['pname'];
+    $prelation = $_POST['prelation'];
+    $pcontact = $_POST['pcontact'];
+    $pemail = $_POST['pemail'];
 
-        move_uploaded_file($file_tmp,"../admin/leave_applications/".$file_name);
-        $query="INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        $stmt = $mysqli->prepare($query);
-        $rc=$stmt->bind_param('issssisissssiissis',$room,$stayf,$stayto,$address,$city,$pincode,$file_name,$regno,$fname,$mname,$lname,$semail,$contact,$econtact,$pname,$prelation,$pcontact,$pemail);
-        $stmt->execute();
-        echo"<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
-    }
+    move_uploaded_file($file_tmp, "../admin/leave_applications/" . $file_name);
+    $query = "INSERT into  leaveappication(room_no,leaving_date,back_date,goingaddress,goingcity,goingpincode,parentApplication,regNo,firstName,middleName,lastName,email,contactNo,emecontactNo,parentName,relation,parentNo,pemail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $stmt = $mysqli->prepare($query);
+    $rc = $stmt->bind_param('issssisissssiissis', $room, $stayf, $stayto, $address, $city, $pincode, $file_name, $regno, $fname, $mname, $lname, $semail, $contact, $econtact, $pname, $prelation, $pcontact, $pemail);
+    $stmt->execute();
+    echo "<script>alert('Requested Student Has Been Applied For Leave Application');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,29 +54,29 @@
     <link href="../dist/css/style.min.css" rel="stylesheet">
 
     <script>
-    function getSeater(val) {
-        $.ajax({
-        type: "POST",
-        url: "get-seater.php",
-        data:'roomid='+val,
-        success: function(data){
-        //alert(data);
-        $('#seater').val(data);
-        }
-        });
+        function getSeater(val) {
+            $.ajax({
+                type: "POST",
+                url: "get-seater.php",
+                data: 'roomid=' + val,
+                success: function(data) {
+                    //alert(data);
+                    $('#seater').val(data);
+                }
+            });
 
-        $.ajax({
-        type: "POST",
-        url: "get-seater.php",
-        data:'rid='+val,
-        success: function(data){
-        //alert(data);
-        $('#fpm').val(data);
+            $.ajax({
+                type: "POST",
+                url: "get-seater.php",
+                data: 'rid=' + val,
+                success: function(data) {
+                    //alert(data);
+                    $('#fpm').val(data);
+                }
+            });
         }
-        });
-    }
     </script>
-    
+
 </head>
 
 <body>
@@ -92,13 +92,12 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
-            <?php include '../includes/student-navigation.php'?>
+            <?php include '../includes/student-navigation.php' ?>
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
@@ -109,7 +108,7 @@
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <?php include '../includes/student-sidebar.php'?>
+                <?php include '../includes/student-sidebar.php' ?>
             </div>
             <!-- End Sidebar scroll-->
         </aside>
@@ -120,108 +119,105 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-            
 
-        <div class="container-fluid">
-                
+
+            <div class="container-fluid">
+
                 <form action="" method="POST" enctype="multipart/form-data">
-                
-                <?php
-                    $semail=$_SESSION['login'];
-                    $stmt=$mysqli->prepare("SELECT email FROM leaveappication WHERE email=? ");
-                    $stmt->bind_param('s',$semail);
+
+                    <?php
+                    $semail = $_SESSION['login'];
+                    $stmt = $mysqli->prepare("SELECT email FROM leaveappication WHERE email=? ");
+                    $stmt->bind_param('s', $semail);
                     $stmt->execute();
-                    $stmt -> bind_result($semail);
-                    $rs=$stmt->fetch();
+                    $stmt->bind_result($semail);
+                    $rs = $stmt->fetch();
                     $stmt->close();
 
-                    if($rs){ ?>
-                    <div class="alert alert-primary alert-dismissible bg-danger text-white border-0 fade show"
-                        role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    if ($rs) { ?>
+                        <div class="alert alert-primary alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                        </button>
-                                <strong>Info: </strong> You have already applied for leave application!
-                    </div>
-                    <?php }
-                    else{
-						echo "";
-					}			
-				?>	
+                            </button>
+                            <strong>Info: </strong> You have already applied for leave application!
+                        </div>
+                    <?php } else {
+                        echo "";
+                    }
+                    ?>
 
 
 
-                <div class="col-7 align-self-center">
+                    <div class="col-7 align-self-center">
                         <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Apply For Leave Application</h4>
                     </div>
 
-                
-                <div class="row">
+
+                    <div class="row">
 
 
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Room Number</h4>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Room Number</h4>
                                     <div class="form-group mb-4">
                                         <select class="custom-select mr-sm-2" name="room" id="room" onChange="getSeater(this.value);" onBlur="checkAvailability()" required id="inlineFormCustomSelect">
                                             <option selected>Select...</option>
-                                            <?php $query ="SELECT * FROM rooms";
+                                            <?php $query = "SELECT * FROM rooms";
                                             $stmt2 = $mysqli->prepare($query);
                                             $stmt2->execute();
-                                            $res=$stmt2->get_result();
-                                            while($row=$res->fetch_object())
-                                            {
+                                            $res = $stmt2->get_result();
+                                            while ($row = $res->fetch_object()) {
                                             ?>
-                                            <option value="<?php echo $row->room_no;?>"> <?php echo $row->room_no;?></option>
+                                                <option value="<?php echo $row->room_no; ?>"> <?php echo $row->room_no; ?></option>
                                             <?php } ?>
                                         </select>
                                         <span id="room-availability-status" style="font-size:12px;"></span>
                                     </div>
-                              
+
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                
- 
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Leave from hostel from date</h4>
+
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Leave from hostel from date</h4>
                                     <div class="form-group">
                                         <input type="date" name="stayf" id="stayf" class="form-control" required>
                                     </div>
-                                
+
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
 
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">to</h4>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">to</h4>
                                     <div class="form-group">
-                                    <input type="date" name="stayto" id="stayto" class="form-control" required>
+                                        <input type="date" name="stayto" id="stayto" class="form-control" required>
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
+                    </div>
                     <h4 class="card-title mt-5">Address where I am going</h4>
 
                     <div class="row">
-                    
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Address</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="address" id="address" class="form-control" placeholder="Enter Address" required>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="address" id="address" class="form-control" placeholder="Enter Address" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -231,9 +227,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">City</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="city" id="city" class="form-control" placeholder="Enter City Name" required>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter City Name" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -243,22 +239,22 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Postal Code</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="pincode" id="pincode" class="form-control" placeholder="Enter Postal Code" required>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="pincode" id="pincode" class="form-control" placeholder="Enter Postal Code" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                    
+
                     </div>
                     <hr>
                     <div class="form-group mt-3">
-                    <h4 class="card-title mt-5">Uplode parent's confirmation letter</h4>
+                        <h4 class="card-title mt-5">Uplode parent's confirmation letter</h4>
                         <input type="file" name="file" id="file" required>
                     </div>
                     <hr>
-       
+
                     <!-- <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
@@ -332,119 +328,117 @@
                 
                 </div> -->
 
-                <h4 class="card-title mt-5">Student's Personal Information</h4>
+                    <h4 class="card-title mt-5">Student's Personal Information</h4>
 
-                <div class="row">
+                    <div class="row">
 
-                <?php	
-                $aid=$_SESSION['id'];
-                    $ret="select * from userregistration where id=?";
-                        $stmt= $mysqli->prepare($ret) ;
-                    $stmt->bind_param('i',$aid);
-                    $stmt->execute();
-                    $res=$stmt->get_result();
+                        <?php
+                        $aid = $_SESSION['id'];
+                        $ret = "select * from userregistration where id=?";
+                        $stmt = $mysqli->prepare($ret);
+                        $stmt->bind_param('i', $aid);
+                        $stmt->execute();
+                        $res = $stmt->get_result();
 
-                    while($row=$res->fetch_object())
-                    {
+                        while ($row = $res->fetch_object()) {
                         ?>
-                
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Registration Number</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="regno" id="regno" value="<?php echo $row->regNo; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">First Name</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="fname" id="fname" value="<?php echo $row->firstName; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Middle Name</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="mname" id="mname" value="<?php echo $row->middleName; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Last Name</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="lname" id="lname" value="<?php echo $row->lastName; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Email</h4>
+                                        <div class="form-group">
+                                            <input type="email" name="semail" id="semail" value="<?php echo $row->email; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Contact Number</h4>
+                                        <div class="form-group">
+                                            <input type="number" name="contact" id="contact" value="<?php echo $row->contactNo; ?>" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php } ?>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Registration Number</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="regno" id="regno" value="<?php echo $row->regNo;?>" class="form-control" readonly>
-                                        </div>
+                                    <h4 class="card-title">Emergency Contact Number</h4>
+                                    <div class="form-group">
+                                        <input type="number" name="econtact" id="econtact" class="form-control" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">First Name</h4>
-                                    <div class="form-group">
-                                        <input type="text" name="fname" id="fname" value="<?php echo $row->firstName;?>" class="form-control" readonly>
-                                    </div>
-                            </div>
-                        </div>
                     </div>
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Middle Name</h4>
-                                    <div class="form-group">
-                                        <input type="text" name="mname" id="mname" value="<?php echo $row->middleName;?>" class="form-control" readonly>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Last Name</h4>
-                                    <div class="form-group">
-                                        <input type="text" name="lname" id="lname" value="<?php echo $row->lastName;?>" class="form-control" readonly>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Email</h4>
-                                    <div class="form-group">
-                                        <input type="email" name="semail" id="semail" value="<?php echo $row->email;?>" class="form-control" readonly>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Contact Number</h4>
-                                    <div class="form-group">
-                                        <input type="number" name="contact" id="contact" value="<?php echo $row->contactNo;?>" class="form-control" readonly>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php }?>
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Emergency Contact Number</h4>
-                                    <div class="form-group">
-                                        <input type="number" name="econtact" id="econtact" class="form-control" required>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>
-
                     <h4 class="card-title mt-5">Parent's Information</h4>
 
                     <div class="row">
-                    
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Parent Name</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="pname" id="pname" class="form-control" placeholder="Enter Guardian's Name" required>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="pname" id="pname" class="form-control" placeholder="Enter Guardian's Name" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -454,9 +448,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Relation</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="prelation" id="prelation" required class="form-control" placeholder="Student's Relation with Guardian">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="prelation" id="prelation" required class="form-control" placeholder="Student's Relation with Guardian">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -466,27 +460,27 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Contact Number</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="pcontact" id="pcontact" required class="form-control" placeholder="Enter Guardian's Contact No.">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="pcontact" id="pcontact" required class="form-control" placeholder="Enter Guardian's Contact No.">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Parent's Email</h4>
-                                    <div class="form-group">
-                                        <input type="email" name="pemail" id="pemail" placeholder="Enter parent's email" required class="form-control">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="email" name="pemail" id="pemail" placeholder="Enter parent's email" required class="form-control">
+                                </div>
                             </div>
                         </div>
                     </div>
 
-     
+
 
                     <!-- <h4 class="card-title mt-5">Permanent Address Information</h4>
 
@@ -563,7 +557,7 @@
                         </div>
                     </div>
 
-                
+
                 </form>
 
             </div>
@@ -612,51 +606,53 @@
 
 <!-- Custom Ft. Script Lines -->
 <script type="text/javascript">
-	$(document).ready(function(){
-        $('input[type="checkbox"]').click(function(){
-            if($(this).prop("checked") == true){
-                $('#paddress').val( $('#address').val() );
-                $('#pcity').val( $('#city').val() );
-                $('#ppincode').val( $('#pincode').val() );
-            } 
-            
+    $(document).ready(function() {
+        $('input[type="checkbox"]').click(function() {
+            if ($(this).prop("checked") == true) {
+                $('#paddress').val($('#address').val());
+                $('#pcity').val($('#city').val());
+                $('#ppincode').val($('#pincode').val());
+            }
+
         });
     });
-    </script>
-    
-    <script>
-        function checkAvailability() {
+</script>
+
+<script>
+    function checkAvailability() {
         $("#loaderIcon").show();
         jQuery.ajax({
-        url: "check-availability.php",
-        data:'roomno='+$("#room").val(),
-        type: "POST",
-        success:function(data){
-            $("#room-availability-status").html(data);
-            $("#loaderIcon").hide();
-        },
-            error:function (){}
-            });
-        }
-    </script>
+            url: "check-availability.php",
+            data: 'roomno=' + $("#room").val(),
+            type: "POST",
+            success: function(data) {
+                $("#room-availability-status").html(data);
+                $("#loaderIcon").hide();
+            },
+            error: function() {}
+        });
+    }
+</script>
 
 
-    <script type="text/javascript">
-
+<script type="text/javascript">
     $(document).ready(function() {
-        $('#duration').keyup(function(){
+        $('#duration').keyup(function() {
             var fetch_dbid = $(this).val();
             $.ajax({
-            type:'POST',
-            url :"ins-amt.php?action=userid",
-            data :{userinfo:fetch_dbid},
-            success:function(data){
-            $('.result').val(data);
-            }
+                type: 'POST',
+                url: "ins-amt.php?action=userid",
+                data: {
+                    userinfo: fetch_dbid
+                },
+                success: function(data) {
+                    $('.result').val(data);
+                }
             });
-            
 
-    })});
-    </script>
+
+        })
+    });
+</script>
 
 </html>
