@@ -140,7 +140,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Seater</h4>
+                                    <h4 class="card-title">capacity</h4>
                                         <div class="form-group mb-4">
                                             <select class="custom-select mr-sm-2" id="seater" name="seater" required="required">
                                                 <!-- <option value="">Select Seater...</option>
@@ -158,7 +158,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Total seater left</h4>
+                                    <h4 class="card-title">Total capacity left</h4>
                                         <div class="form-group">
                                             <input type="number" name="fee" id="fee" placeholder="Enter Total Fees" required="required" class="form-control">
                                         </div>

@@ -89,7 +89,7 @@ include('include/header.php');
                                 <strong>GPP Girl's Hostel</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                            The GPP Girl's hostel have an gaming area, hangout zones & reading rooms. The University also provides transport facilities to its students residing in its hostels.</p>
+                            The GPP Girl's hostel have an gaming area, hangout zones & reading rooms.</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">

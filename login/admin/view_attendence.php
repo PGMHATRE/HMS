@@ -128,7 +128,6 @@
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
                                                 <th>Mark Present</th>
-                                                <th>Mark Absent</th>
 
                                             </tr>
                                         </thead>
@@ -147,8 +146,11 @@
                                         <td><?php echo $row->regNo;?></td>
                                         <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
                                         <td>
-                                        <a href="view_attendence.php?id=<?php echo $row->id;?>" title="Mark Present" onclick="return confirm("Do you want to delete");"><i class="fas fa-graduation-cap" style="color:green"></i></a></td>
-                                        <td><a href="view_attendence.php?id=<?php echo $row->id;?>" title="Mark Absent"><i class="fas fa-times"></i></a>&nbsp;&nbsp</td>;
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                                                <label class="form-check-label" for="flexCheckDefault">
+        
+                                            </label>
+                                       </td>
                                         </tr>
                                             <?php
                                         $cnt=$cnt+1;
