@@ -169,7 +169,7 @@
                                     <table id="zero_config" class="table table-striped table-hover table-bordered no-wrap">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th>#</th>
+                                                <th>Sr no</th>
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
                                                 <th>Student GPS image</th>

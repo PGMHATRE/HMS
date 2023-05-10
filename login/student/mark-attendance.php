@@ -17,7 +17,6 @@ if(isset($_POST['submit'])){
     $file_name = $_FILES['file']['name'];
     $file_tmp_name = $_FILES['file']['tmp_name'];
 
-    // move_uploaded_file($file_tmp_name,"../admin/attendance".$file_name);
     move_uploaded_file($file_tmp_name,"../admin/attendance/".$file_name);
 
     $date = date("Y-m-d H:i:s");

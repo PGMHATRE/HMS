@@ -147,7 +147,7 @@
                                                 <option value="1">Single Seater</option>
                                                 <option value="2">Two Seater</option> -->
                                                 <option value="3">Three Seater</option>
-                                                <option value="4">Seven Seater</option>
+                                                <option value="7">Seven Seater</option>
                                             </select>
                                         </div>
                                 </div>

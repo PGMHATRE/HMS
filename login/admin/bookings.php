@@ -38,14 +38,15 @@
         $adn="DELETE from userregistration where regNo=?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$regno);
-        $stmt->execute();
-        $stmt->close();	   
+        $stmt->execute();  
+        $stmt->close();
 
+        $feespm_update = $feespm - 1;
 
-        $query = "UPDATE rooms SET fees='$feespm' WHERE room_no = $roomno";
-        $stmt = $mysqli->prepare($query);
-
-        $stmt->execute();
+        $query1 = "UPDATE rooms SET fees='$feespm_update' WHERE room_no = $roomno";
+        $stmt1 = $mysqli->prepare($query1);
+        $stmt1->execute();
+        $stmt1->close();	 
         echo"<script>alert('Success: Booked!');</script>";
     }
 ?>
@@ -726,7 +727,7 @@
         data:'roomno='+$("#room").val(),
         type: "POST",
         success:function(data){
-            $("#room-availability-status").html(data);
+            // $("#room-availability-status").html(data);
             $("#loaderIcon").hide();
         },
             error:function (){}
