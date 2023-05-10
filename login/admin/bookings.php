@@ -17,7 +17,6 @@
         $fname=$_POST['fname'];
         $mname=$_POST['mname'];
         $lname=$_POST['lname'];
-        $gender=$_POST['gender'];
         $contactno=$_POST['contact'];
         $emailid=$_POST['email'];
         $emcntno=$_POST['econtact'];
@@ -30,10 +29,10 @@
         $paddress=$_POST['paddress'];
         $pcity=$_POST['pcity'];
         $ppincode=$_POST['ppincode'];
-        $query="INSERT into  registration(roomno,seater,stayfrom,regno,firstName,middleName,lastName,gender,contactno,emailid,egycontactno,guardianName,guardianRelation,guardianContactno,corresAddress,corresCIty,corresPincode,pmntAddress,pmntCity,pmntPincode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query="INSERT into  registration(roomno,seater,stayfrom,regno,firstName,middleName,lastName,contactno,emailid,egycontactno,guardianName,guardianRelation,guardianContactno,corresAddress,corresCIty,corresPincode,pmntAddress,pmntCity,pmntPincode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
        
-        $rc=$stmt->bind_param('iissssssisissississi',$roomno,$seater,$stayfrom,$regno,$fname,$mname,$lname,$gender,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
+        $rc=$stmt->bind_param('iisssssisissississi',$roomno,$seater,$stayfrom,$regno,$fname,$mname,$lname,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
         $stmt->execute();
 
         $adn="DELETE from userregistration where regNo=?";
@@ -455,23 +454,6 @@
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Gender</h4>
-                                    <div class="form-group">
-                                    <select name="gender" class="form-control" required="required">
-                                        <option value="">Select Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="others">Others</option>
-                                    </select>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
                                 <h4 class="card-title">Contact Number</h4>
                                     <div class="form-group">
                                         <input  name="contact" id="contact" placeholder="Enter contact number" class="form-control" required>
@@ -519,14 +501,14 @@
                               
                 </div>
 
-                <h4 class="card-title mt-5">Guardian's Information</h4>
+                <h4 class="card-title mt-5">Parent's Information</h4>
 
                     <div class="row">
                     
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Guardian Name</h4>
+                                    <h4 class="card-title">Parent Name</h4>
                                         <div class="form-group">
                                             <input type="text" name="gname" id="gname" class="form-control" placeholder="Enter Guardian's Name" required>
                                         </div>

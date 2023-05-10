@@ -27,7 +27,7 @@
         aria-expanded="false"><i class="fas fa-cogs"></i><span
         class="hide-menu">Leave Application</span></a></li>
 
-        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#"
+        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="mark-attendance.php"
         aria-expanded="false"><i class="fas fa-cogs"></i><span
         class="hide-menu">Mark Attendence</span></a></li>
                            

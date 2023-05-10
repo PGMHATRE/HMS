@@ -89,10 +89,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">User ID</th>
-                                            <th scope="col">IP</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">City</th>
-                                            <th scope="col">Country</th>
                                             <th scope="col">Logged In Time</th>
                                         </tr>
                                     </thead>
@@ -109,11 +106,7 @@
                                                 ?>
                                         <tr><td><?php echo $cnt;;?></td>
                                         <td><?php echo $row->userId;?></td>
-                                        
-                                        <td><?php echo $row->userIp;?></td>
                                         <td><?php echo $row->userEmail;?></td>
-                                        <td><?php echo $row->city;?></td>
-                                        <td><?php echo $row->country;?></td>
                                         <td><?php echo $row->loginTime;?></td>
                                             </tr>
                                             <?php

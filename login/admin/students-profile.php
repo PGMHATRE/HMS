@@ -133,18 +133,9 @@
                                           <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
                                           <td><b>Email Address:</b></td>
                                           <td><?php echo $row->emailid;?></td>
-                                          </tr>
-
-
-                                          <tr>
                                           <td><b>Contact Number :</b></td>
                                           <td><?php echo $row->contactno;?></td>
-                                          <td><b>Gender :</b></td>
-                                          <td><?php echo $row->gender;?></td>
-                                          <td><b>Selected Course :</b></td>
-                                          <td><?php echo $row->course;?></td>
                                           </tr>
-
 
                                           <tr>
                                           <td><b>Emergency Contact No. :</b></td>
@@ -153,9 +144,6 @@
                                           <td><?php echo $row->guardianName;?></td>
                                           <td><b>Guardian Relation :</b></td>
                                           <td><?php echo $row->guardianRelation;?></td>
-                                          </tr>
-
-                                          <tr>
                                           <td><b>Guardian Contact No. :</b></td>
                                           <td colspan="6"><?php echo $row->guardianContactno;?></td>
                                           </tr>
@@ -166,16 +154,12 @@
                                           <?php echo $row->corresAddress;?><br />
                                           <?php echo $row->corresCIty;?>, <?php echo $row->corresPincode;?><br />
                                           <?php echo $row->corresState;?>
-
-
-                                          </td>
                                           <td><b>Permanent Address:</b></td>
                                           <td colspan="2">
                                           <?php echo $row->pmntAddress;?><br />
                                           <?php echo $row->pmntCity;?>, <?php echo $row->pmntPincode;?><br />	
 
                                           </td>
-                                          </tr>
 
                                           <tr>
 
@@ -187,46 +171,7 @@
 
                                           <td><b>Seater :</b></td>
                                           <td><?php echo $row->seater;?></td>
-
-
                                           </tr>
-
-                                          <tr>
-
-                                          <td><b>Duration:</b></td>
-                                          <td><?php echo $dr=$row->duration;?> Months</td>
-
-                                          <td><b>Food Status:</b></td>
-                                          <td>
-                                          <?php if($row->foodstatus==0){
-                                          echo "Not Required";
-                                          } else {
-                                          echo "Required";
-                                          }
-                                          ;?> </td>
-
-                                          <td><b>Fees Per Month :</b></td>
-                                          <td>$<?php echo $fpm=$row->feespm;?></td>
-
-                                          
-
-                                          </tr>
-
-                                          <tr>
-                                          <td colspan="6"><b>Total Fees (<?php echo ($dr).' months'?>) : 
-                                          <?php if($row->foodstatus==1){ 
-                                          $fd=211; 
-                                          echo '$'.(($fd+$fpm)*$dr);
-                                          } else {
-                                          echo '$'.$dr*$fpm;
-                                          }
-                                          ?></b></td>
-                                          </tr>
-
-
-                                          
-
-
                                           <?php } ?>
 
                                       </tbody>
