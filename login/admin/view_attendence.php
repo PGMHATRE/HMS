@@ -127,7 +127,8 @@
                                                 <th>#</th>
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
-                                                <th>Mark Present</th>
+                                                <th>Student GPS image</th>
+                                                <th>Mark Attendence</th>
 
                                             </tr>
                                         </thead>
@@ -146,11 +147,12 @@
                                         <td><?php echo $row->regNo;?></td>
                                         <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
                                         <td>
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                                                <label class="form-check-label" for="flexCheckDefault">
-        
-                                            </label>
                                        </td>
+                                        <td> 
+                                             <a href="#" class="btn btn-info btn-lg">
+                                                  <span class="glyphicon glyphicon-remove-circle"></span> Present
+                                             </a>
+                                        </td>
                                         </tr>
                                             <?php
                                         $cnt=$cnt+1;
