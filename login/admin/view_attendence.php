@@ -13,6 +13,16 @@
             $stmt->close();	   
             echo "<script>alert('Record has been deleted');</script>" ;
     }
+
+    if(isset($_POST['mark'])){
+        $mark_val=$_POST['mark'];
+        $reg = $_POST['regno'];
+        $adn="UPDATE attendance SET attendance_status='1' WHERE regNo=?";
+            $stmt= $mysqli->prepare($adn);
+            $stmt->bind_param('s',$reg);
+            $stmt->execute();
+            $stmt->close();	   
+    }
 ?>
 
 <!DOCTYPE html>
@@ -133,32 +143,36 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
                                         <?php	
                                         $aid=$_SESSION['id'];
-                                        $ret="SELECT * from userregistration";
+                                        $ret="SELECT * from attendance";
                                         $stmt= $mysqli->prepare($ret) ;
                                         $stmt->execute() ;//ok
                                         $res=$stmt->get_result();
                                         $cnt=1;
+                                        
                                         while($row=$res->fetch_object())
                                             {
                                                 ?>
+                                               
                                         <tr><td><?php echo $cnt;;?></td>
                                         <td><?php echo $row->regNo;?></td>
-                                        <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
+                                        <td><?php echo $row->email;?> <?php // echo $row->middleName;?> <?php // echo $row->lastName;?></td>
                                         <td>
                                        </td>
                                         <td> 
-                                             <a href="#" class="btn btn-info btn-lg">
+                                        <form action="" method="post">
+                                            <input type="hidden" name="regno"  value="<?php echo $row->regNo;?>" >
+                                             <button type="submit" value="mark_<?php echo $row->regNo;?>" name="mark" id="mark_<?php echo $row->regNo;?>" class="btn btn-info btn-lg" <?php if($row->attendance_status == 1){echo "disabled";}?>>
                                                   <span class="glyphicon glyphicon-remove-circle"></span> Present
-                                             </a>
+                                            </button>
+                                        </form>
                                         </td>
                                         </tr>
                                             <?php
-                                        $cnt=$cnt+1;
+                                                $cnt=$cnt+1;
                                             } ?>
-											
-										
 									</tbody>
                                     </table>
                                 </div>
