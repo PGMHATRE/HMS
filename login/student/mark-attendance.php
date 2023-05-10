@@ -7,6 +7,9 @@ check_login();
 if(isset($_POST['submit'])){
     $file_name = $_FILES['file'];
 
+    $query = "INSERT INTO `attendance`(`sr_no`, `regNo`, `email`, `image`, `date`, `attendance_status`) VALUES (DEFAULT,'$regNo','$email','$file_name',now(),'1')";
+    $result = mysqli_query($connect,$query);
+
 
 }
 ?>
