@@ -160,6 +160,7 @@
                                         <td><?php echo $row->regNo;?></td>
                                         <td><?php echo $row->email;?> <?php // echo $row->middleName;?> <?php // echo $row->lastName;?></td>
                                         <td>
+                                            <img src="./attendance/<?php echo $row->image; ?>" alt="">
                                        </td>
                                         <td> 
                                         <form action="" method="post">
