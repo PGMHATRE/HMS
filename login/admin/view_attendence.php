@@ -148,7 +148,7 @@
                                         $aid=$_SESSION['id'];
                                         $ret="SELECT * from attendance";
                                         $stmt= $mysqli->prepare($ret) ;
-                                        $stmt->execute() ;//ok
+                                        $stmt->execute() ;
                                         $res=$stmt->get_result();
                                         $cnt=1;
                                         

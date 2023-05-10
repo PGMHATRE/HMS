@@ -6,12 +6,17 @@ check_login();
 
 if(isset($_POST['submit'])){
     $file_name = $_FILES['file'];
+    $file_tmp_name = $_FILES['file']['tmp_name'];
 
-    // $query = "INSERT INTO `attendance`(`sr_no`, `regNo`, `email`, `image`, `date`, `attendance_status`) VALUES (DEFAULT,'$regNo','$email','$file_name',now(),'1')";
-    // $result = mysqli_query($connect,$query);
+    move_uploaded_file($file_tmp_name,"../admin/attendance".$file_name);
+    $date = new date();
+    $query = "INSERT INTO `attendance`(`regNo`, `email`, `image`, `date`, `attendance_status`) values(?,?,?,?,?)";
+    $stmt = $mysqli->prepare($query);
+    $rc = $stmt->bind_param('ssssi','$regNo','$email','$file_name',NOW(),1);
+    $stmt->execute();
 
-
-}
+    echo "<script>alert('Uploaded Successful');</script>";
+}   
 ?>
 
 <!DOCTYPE html>
