@@ -17,11 +17,13 @@
     if(isset($_POST['mark'])){
         $mark_val=$_POST['mark'];
         $reg = $_POST['regno'];
-        $adn="UPDATE attendance SET attendance_status='1' WHERE regNo=?";
+        $adn="UPDATE attendance SET attendance_status='$mark_val' WHERE regNo=?";
             $stmt= $mysqli->prepare($adn);
             $stmt->bind_param('s',$reg);
             $stmt->execute();
             $stmt->close();	   
+
+        echo "<script>alert('Attendance Marked');</script>" ;
     }
 ?>
 
@@ -122,6 +124,39 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
+                <style>
+                    #zoomedImage {
+                        position: absolute;
+                        z-index: 9999;
+                        display: none;
+                        top: 0;
+                        left: 0;
+                        max-width: 100%;
+                        max-height: 100%;
+                        border: 1px solid black;
+                    }
+                </style>
+
+                <script>
+                    function zoomIn(event) {
+                        var imgSrc = event.target.src;
+                        var zoomedImage = document.createElement('img');
+                        zoomedImage.id = 'zoomedImage';
+                        zoomedImage.src = imgSrc;
+                        zoomedImage.style.display = 'block';
+                        document.body.appendChild(zoomedImage);
+                        zoomedImage.style.top = (window.innerHeight - zoomedImage.height) / 2 + 'px';
+                        zoomedImage.style.left = (window.innerWidth - zoomedImage.width) / 2 + 'px';
+
+                        zoomedImage.addEventListener('click', zoomOut);
+                    }
+
+                    function zoomOut() {
+                        var zoomedImage = document.getElementById('zoomedImage');
+                        zoomedImage.style.display = 'none';
+                        document.body.removeChild(zoomedImage);
+                    }
+                </script>
             <div class="container-fluid">
 
                 <!-- Table Starts -->
@@ -138,8 +173,8 @@
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
                                                 <th>Student GPS image</th>
-                                                <th>Mark Attendence</th>
-
+                                                <th>Present</th>
+                                                <th>Absent</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -153,22 +188,34 @@
                                         $cnt=1;
                                         
                                         while($row=$res->fetch_object())
-                                            {
+                                        {
+                                            $currentDate = date('Y-m-d');
+                                            $dateOnly = substr($row->date, 0, 10);
+                                            $buttonDisabled = ($row->attendance_status != NULL && $dateOnly == $currentDate) ? 'disabled' : ''; 
                                                 ?>
                                                
                                         <tr><td><?php echo $cnt;;?></td>
                                         <td><?php echo $row->regNo;?></td>
                                         <td><?php echo $row->email;?> <?php // echo $row->middleName;?> <?php // echo $row->lastName;?></td>
                                         <td>
-                                            <img src="./attendance/<?php echo $row->image; ?>" alt="">
+                                            <img src="./attendance/<?php echo $row->image; ?>" alt="" style="max-width: 180px"  onclick="zoomIn(event)">
                                        </td>
                                         <td> 
-                                        <form action="" method="post">
-                                            <input type="hidden" name="regno"  value="<?php echo $row->regNo;?>" >
-                                             <button type="submit" value="mark_<?php echo $row->regNo;?>" name="mark" id="mark_<?php echo $row->regNo;?>" class="btn btn-info btn-lg" <?php if($row->attendance_status == 1){echo "disabled";}?>>
-                                                  <span class="glyphicon glyphicon-remove-circle"></span> Present
-                                            </button>
-                                        </form>
+                                            <form action="" method="post">
+                                                <input type="hidden" name="regno"  value="<?php echo $row->regNo;?>" >
+                                                <button type="submit" value="1" name="mark" class="btn btn-info btn-lg" <?php echo $buttonDisabled; ?>>
+                                                    <span class="glyphicon glyphicon-remove-circle"></span> Present
+                                                </button>
+                                            </form>
+                                        </td>
+
+                                        <td> 
+                                            <form action="" method="post">
+                                                <input type="hidden" name="regno"  value="<?php echo $row->regNo;?>" >
+                                                <button type="submit" value="2" name="mark" class="btn btn-danger btn-lg" <?php echo $buttonDisabled; ?>>
+                                                    <span class="glyphicon glyphicon-remove-circle"></span> Absent
+                                                </button>
+                                            </form>
                                         </td>
                                         </tr>
                                             <?php

@@ -108,7 +108,7 @@
                 <div class="row">
 
                     <?php	
-                    $aid=$_SESSION['id'];
+                        $aid=$_SESSION['id'];
                         $ret="select * from userregistration where id=?";
                             $stmt= $mysqli->prepare($ret) ;
                         $stmt->bind_param('i',$aid);

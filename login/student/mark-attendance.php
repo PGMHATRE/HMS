@@ -3,16 +3,28 @@ session_start();
 include('../includes/dbconn.php');
 include('../includes/check-login.php');
 check_login();
+$aid=$_SESSION['id'];
+$ret="select * from userregistration where id=?";
+$stmt= $mysqli->prepare($ret) ;
+$stmt->bind_param('i',$aid);
+$stmt->execute() ;//ok
+$res=$stmt->get_result();
+$row=$res->fetch_object();
+$email = $row->email;
+$regNo = $row->regNo;
 
 if(isset($_POST['submit'])){
-    $file_name = $_FILES['file'];
+    $file_name = $_FILES['file']['name'];
     $file_tmp_name = $_FILES['file']['tmp_name'];
 
-    move_uploaded_file($file_tmp_name,"../admin/attendance".$file_name);
-    $date = new date();
-    $query = "INSERT INTO `attendance`(`regNo`, `email`, `image`, `date`, `attendance_status`) values(?,?,?,?,?)";
+    // move_uploaded_file($file_tmp_name,"../admin/attendance".$file_name);
+    move_uploaded_file($file_tmp_name,"../admin/attendance/".$file_name);
+
+    $date = date("Y-m-d H:i:s");
+    $query = "INSERT INTO `attendance`(`regNo`, `email`, `image`, `date`) values(?,?,?,?)";
     $stmt = $mysqli->prepare($query);
-    $rc = $stmt->bind_param('ssssi','$regNo','$email','$file_name',NOW(),1);
+    $rc = $stmt->bind_param('ssss', $regNo, $email, $file_name, $date);
+
     $stmt->execute();
 
     echo "<script>alert('Uploaded Successful');</script>";
