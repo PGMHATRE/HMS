@@ -120,7 +120,7 @@
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-hover table-bordered no-wrap">
                                         <thead class="thead-dark">
-                                            <tr><th>#</th>
+                                            <tr><th>Sr No</th>
                                                 <th>En.No.</th>
                                                 <th>Student's Name</th>
                                                 <th>Contact</th>

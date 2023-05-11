@@ -181,7 +181,10 @@
                                         
                                         <?php	
                                         $aid=$_SESSION['id'];
-                                        $ret="SELECT * from attendance";
+                                        $currentDate = date('Y-m-d');
+                                        //$dateOnly = substr($row->date, 0, 10);
+                                        //WHERE date='$dateOnly'
+                                        $ret="SELECT * from attendance ";
                                         $stmt= $mysqli->prepare($ret) ;
                                         $stmt->execute() ;
                                         $res=$stmt->get_result();
