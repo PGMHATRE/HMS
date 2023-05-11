@@ -11,12 +11,12 @@
     $fname=$_POST['fname'];
     $mname=$_POST['mname'];
     $lname=$_POST['lname'];
-    $gender=$_POST['gender'];
+    // $gender=$_POST['gender'];
     $contactno=$_POST['contact'];
     $udate = date('d-m-Y h:i:s', time());
-    $query="UPDATE  userRegistration set firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
+    $query="UPDATE  userRegistration set firstName=?,middleName=?,lastName=?,contactNo=?,updationDate=? where id=?";
     $stmt = $mysqli->prepare($query);
-    $rc=$stmt->bind_param('ssssisi',$fname,$mname,$lname,$gender,$contactno,$udate,$aid);
+    $rc=$stmt->bind_param('sssisi',$fname,$mname,$lname,$contactno,$udate,$aid);
     $stmt->execute();
     echo"<script>alert('Profile updated Succssfully');</script>";
     }
@@ -119,7 +119,7 @@
                         {
                             ?>
     
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Last Updated On</h4>
@@ -129,7 +129,7 @@
                                     
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
@@ -193,7 +193,7 @@
 
 
 
-                        <div class="col-sm-12 col-md-6 col-lg-4">
+                        <!-- <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Gender</h4>
@@ -207,7 +207,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <div class="col-sm-12 col-md-6 col-lg-4">

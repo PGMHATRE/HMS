@@ -6,7 +6,9 @@
 
     if(isset($_POST['changepwd'])){
     $op=$_POST['oldpassword'];
+    $op=md5($op);
     $np=$_POST['newpassword'];
+    $np=md5($np);
     $ai=$_SESSION['id'];
     $udate=date('Y-m-d');
         $sql="SELECT password FROM admin where password=?";
@@ -255,7 +257,7 @@
             data:'emailid='+$("#emailid").val(),
             type: "POST",
         success:function(data){
-            $("#user-availability-status").html(data);
+            $("#user-availability-status"   ).html(data);
             $("#loaderIcon").hide();
         },
         error:function (){}
@@ -271,7 +273,7 @@
             data:'oldpassword='+$("#oldpassword").val(),
             type: "POST",
         success:function(data){
-            $("#password-availability-status").html(data);
+            // $("#password-availability-status").html(data);
             $("#loaderIcon").hide();
         },
         error:function (){}

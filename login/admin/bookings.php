@@ -737,20 +737,20 @@
 
     <script type="text/javascript">
 
-    $(document).ready(function() {
-        $('#duration').keyup(function(){
-            var fetch_dbid = $(this).val();
-            $.ajax({
-            type:'POST',
-            url :"ins-amt.php?action=userid",
-            data :{userinfo:fetch_dbid},
-            success:function(data){
-            $('.result').val(data);
-            }
-            });
+    // $(document).ready(function() {
+    //     $('#duration').keyup(function(){
+    //         var fetch_dbid = $(this).val();
+    //         $.ajax({
+    //         type:'POST',
+    //         url :"ins-amt.php?action=userid",
+    //         data :{userinfo:fetch_dbid},
+    //         success:function(data){
+    //         $('.result').val(data);
+    //         }
+    //         });
             
 
-    })});
+    // })});
     </script>
 
 </body>

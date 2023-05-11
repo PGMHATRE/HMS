@@ -133,7 +133,7 @@
                                     <div class="d-inline-flex align-items-center">
                                         <h2 class="text-dark mb-1 font-weight-medium"><?php include 'counters/booked-count.php'?></h2>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Booked Rooms</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Booked Students</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="book-open"></i></span>
@@ -169,7 +169,7 @@
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
+                                            <th scope="col">Sr No</th>
                                             <!-- <th scope="col">User ID</th> -->
                                             <th scope="col">Student's Email</th>
                                             <th scope="col">Last Activity</th>

@@ -4,15 +4,6 @@
     include('../includes/check-login.php');
     check_login();
 
-    if(isset($_GET['del'])) {
-        $id=intval($_GET['del']);
-        $adn="DELETE from userregistration where id=?";
-            $stmt= $mysqli->prepare($adn);
-            $stmt->bind_param('i',$id);
-            $stmt->execute();
-            $stmt->close();	   
-            echo "<script>alert('Record has been deleted');</script>" ;
-    }
 
     if(isset($_POST['mark'])){
         $mark_val=$_POST['mark'];
@@ -23,7 +14,12 @@
             $stmt->execute();
             $stmt->close();	   
 
-        echo "<script>alert('Attendance Marked');</script>" ;
+        if($mark_val == '1'){
+            echo "<script>alert('Student is present');</script>" ;
+        }
+        else{
+            echo "<script>alert('Student is Absent');</script>" ;
+        }
     }
 ?>
 
@@ -171,7 +167,7 @@
                                             <tr>
                                                 <th>Sr no</th>
                                                 <th>En.No.</th>
-                                                <th>Student's Name</th>
+                                                <th>Student's Email</th>
                                                 <th>Student GPS image</th>
                                                 <th>Present</th>
                                                 <th>Absent</th>
