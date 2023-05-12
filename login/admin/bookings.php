@@ -35,11 +35,11 @@
         $rc=$stmt->bind_param('iisssssisissississi',$roomno,$seater,$stayfrom,$regno,$fname,$mname,$lname,$contactno,$emailid,$emcntno,$gurname,$gurrelation,$gurcntno,$caddress,$ccity,$cpincode,$paddress,$pcity,$ppincode);
         $stmt->execute();
 
-        $adn="DELETE from userregistration where regNo=?";
-        $stmt= $mysqli->prepare($adn);
-        $stmt->bind_param('i',$regno);
-        $stmt->execute();  
-        $stmt->close();
+        // $adn="DELETE from userregistration where regNo=?";
+        // $stmt= $mysqli->prepare($adn);
+        // $stmt->bind_param('i',$regno);
+        // $stmt->execute();  
+        // $stmt->close();
 
         $feespm_update = $feespm - 1;
 

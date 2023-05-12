@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
                                                 <option value="<?php echo $row->room_no; ?>"> <?php echo $row->room_no; ?></option>
                                             <?php } ?>
                                         </select>
-                                        <span id="room-availability-status" style="font-size:12px;"></span>
+                                        <!-- <span id="room-availability-status" style="font-size:12px;"></span> -->
                                     </div>
 
                                 </div>
