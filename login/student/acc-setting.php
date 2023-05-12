@@ -248,7 +248,7 @@
         data:'oldpassword='+$("#oldpassword").val(),
         type: "POST",
         success:function(data){
-            $("#password-availability-status").html(data);
+            // $("#password-availability-status").html(data);
             $("#loaderIcon").hide();
             },
             error:function (){}
