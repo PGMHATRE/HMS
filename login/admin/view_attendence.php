@@ -164,6 +164,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                            <a href="attendance_logs.php"><button type="button" class="btn btn-block btn-md btn-success">Show Attendance Logs</button></a>
+                            <hr>
                                 <h6 class="card-subtitle">Displaying all the registered student's account.</h6>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-hover table-bordered no-wrap">
@@ -183,7 +185,7 @@
                                         $aid=$_SESSION['id'];
                                         $ret="SELECT * from attendance";
                                         $stmt= $mysqli->prepare($ret) ;
-                                        $stmt->execute() ;
+                                        $stmt->execute();
                                         $res=$stmt->get_result();
                                         $cnt=1;
                                         
